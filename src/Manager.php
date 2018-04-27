@@ -179,8 +179,8 @@ js;
      * @return mixed
      */
     public function response(){
-        $css = implode("\n\r", $this->css);
-        $js = implode("\n\r", $this->js);
+        $css = implode("\n\r", $this->css)."\n\r".'</head>';
+        $js = implode("\n\r", $this->js)."\n\r".'</body>';
 
         $seach = [
             '</head>',
