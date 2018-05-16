@@ -130,7 +130,6 @@ css;
             $this->js[] = "<script src=\"$src\"></script>";
         }
 
-
         return $this;
     }
 
@@ -153,6 +152,23 @@ js;
             $this->js[] = $content;
         }
 
+        return $this;
+    }
+
+    /**
+     * 增加 jquery 标签
+     *
+     * @param null $path
+     *
+     * @return $this
+     */
+    public function jQuery($path = null){
+        $path = is_null($path) ? asset('statics/jquery-2.2.4/jquery.min.js') : $path;
+        $this->js[] = <<<php
+    (function(){
+        window.jQuery || document.write('<script src="$path"><\/script>');
+    })();
+php;
         return $this;
     }
 
