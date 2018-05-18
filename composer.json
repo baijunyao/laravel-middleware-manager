@@ -1,6 +1,6 @@
 {
-    "name": "baijunyao/laravel-middleware-manager",
-    "description": "middleware manager",
+    "name": "baijunyao/laravel-plugin-manager",
+    "description": "plugin manager",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -12,7 +12,14 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Baijunyao\\LaravelMiddlewareManager\\": "src/"
+            "Baijunyao\\LaravelPluginManager\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Baijunyao\\LaravelPluginManager\\PluginManagerServiceProvider"
+            ]
         }
     }
 }

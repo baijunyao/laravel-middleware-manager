@@ -1,10 +1,12 @@
 <?php
 
-namespace Baijunyao\LaravelMiddlewareManager;
+namespace Baijunyao\LaravelPluginManager;
 
+use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
+use Baijunyao\LaravelPluginManager\Middleware\PluginManager;
 
-class MiddlewareManagerServiceProvider extends ServiceProvider
+class PluginManagerServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
@@ -17,6 +19,14 @@ class MiddlewareManagerServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/resources/statics' => public_path('statics'),
         ], 'public');
+
+        // 发布配置项
+        $this->publishes([
+            __DIR__.'/config/pluginManager.php' => config_path('pluginManager.php'),
+        ]);
+        
+        $kernel = $this->app[Kernel::class];
+        $kernel->pushMiddleware(PluginManager::class);
     }
 
     /**
