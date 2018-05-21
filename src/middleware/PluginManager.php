@@ -4,7 +4,6 @@ namespace Baijunyao\LaravelPluginManager\Middleware;
 
 use Closure;
 use Illuminate\Support\Str;
-use Symfony\Component\HttpFoundation\Response;
 
 class PluginManager
 {
