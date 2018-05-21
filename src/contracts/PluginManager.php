@@ -3,7 +3,7 @@
 namespace Baijunyao\LaravelPluginManager\Contracts;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response;
 
 abstract class PluginManager
 {
