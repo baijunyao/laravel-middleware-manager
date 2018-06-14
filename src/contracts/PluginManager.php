@@ -245,12 +245,12 @@ js;
     /**
      * 增加 jquery 标签
      *
-     * @param null $path
+     * @param string $version
      *
      * @return $this
      */
-    protected function jquery($path = null){
-        $path = is_null($path) ? asset('statics/jquery-2.2.4/jquery.min.js') : $path;
+    protected function jquery($version = '1.12.4'){
+        $path = asset("statics/jquery/$version/jquery.min.js");
         $this->js[] = <<<php
 <script>
     (function(){
