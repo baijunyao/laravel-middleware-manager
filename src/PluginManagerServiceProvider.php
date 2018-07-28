@@ -15,11 +15,6 @@ class PluginManagerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // 发布静态资源文件
-        $this->publishes([
-            __DIR__.'/resources/statics' => public_path('statics'),
-        ], 'public');
-
         // 发布配置项
         $this->publishes([
             __DIR__.'/config/pluginManager.php' => config_path('pluginManager.php'),
