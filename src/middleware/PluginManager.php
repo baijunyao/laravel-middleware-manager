@@ -63,6 +63,7 @@ class PluginManager
             // 获取需要替换的内容
             $search = array_merge($search, array_column($manager->getReplace(), 'search'));
             $replace = array_merge($replace, array_column($manager->getReplace(), 'replace'));
+            $manager->clean();
         }
 
         // 插入 css 和 js

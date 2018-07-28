@@ -261,5 +261,12 @@ php;
         return $this;
     }
 
+    /**
+     * 清理动作
+     */
+    public function clean()
+    {
+        
+    }
 
 }
