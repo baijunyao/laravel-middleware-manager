@@ -21,8 +21,8 @@ class PluginManager
         // 获取 response 内容
         $content = $response->getContent();
 
-        // 如果没有 body 标签直接返回
-        if (false === strripos($content, '</body>')) {
+        // 如果没有 body 标签 或者是跳转页面 直接返回
+        if (false === strripos($content, '</body>') || false !== strripos($content, 'Redirecting to')) {
             return $response;
         }
 
@@ -76,6 +76,7 @@ class PluginManager
         // 更新内容并重置Content-Length
         $response->setContent($content);
         $response->headers->remove('Content-Length');
+
         return $response;
     }
 }
