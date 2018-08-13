@@ -17,7 +17,7 @@ class PluginManagerServiceProvider extends ServiceProvider
     {
         // 发布配置项
         $this->publishes([
-            __DIR__.'/config/pluginManager.php' => config_path('pluginManager.php'),
+            __DIR__.'/config/laravel-plugin-manager.php' => config_path('laravel-plugin-manager.php'),
         ]);
         
         $kernel = $this->app[Kernel::class];

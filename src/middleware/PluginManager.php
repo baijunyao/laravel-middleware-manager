@@ -26,7 +26,7 @@ class PluginManager
             return $response;
         }
 
-        $config = config('pluginManager.plugin');
+        $config = config('laravel-plugin-manager.plugin');
         // 初始化要出入的 css 和 js
         $css = '';
         $js = '';
