@@ -2,7 +2,6 @@
 
 namespace Baijunyao\LaravelPluginManager;
 
-use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
 use Baijunyao\LaravelPluginManager\Middleware\PluginManager;
 
@@ -19,9 +18,9 @@ class PluginManagerServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/config/laravel-plugin-manager.php' => config_path('laravel-plugin-manager.php'),
         ]);
-        
-        $kernel = $this->app[Kernel::class];
-        $kernel->pushMiddleware(PluginManager::class);
+
+        $router = $this->app['router'];
+        $router->pushMiddlewareToGroup('web', PluginManager::class);
     }
 
     /**
