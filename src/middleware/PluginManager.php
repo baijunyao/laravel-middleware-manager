@@ -3,7 +3,6 @@
 namespace Baijunyao\LaravelPluginManager\Middleware;
 
 use Closure;
-use Illuminate\Support\Str;
 
 class PluginManager
 {
@@ -32,18 +31,12 @@ class PluginManager
         $js = '';
         $search = [];
         $replace = [];
-        // 获取当前路由 path
-        $path = $request->path();
+
         foreach ($config as $k => $v) {
             // 如果当前路由需要排除掉插件 则直接 continue
-            $needContinue = false;
             $except = empty($v['except']) ? [] : $v['except'];
-            foreach ($except as $m => $n) {
-                if (Str::is(trim($n, '/'), $path)) {
-                    $needContinue = true;
-                }
-            }
-            if ($needContinue) {
+
+            if ($request->is($except)) {
                 continue;
             }
 
